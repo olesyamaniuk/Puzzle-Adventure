@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const menuBtnRef = document.querySelector("[data-menu-button]");
-  const navListRef = document.querySelector(".e-h-navigation-list");
-  const headerRef = document.querySelector(".e-h-header");
-  const navigationRef = document.querySelector(".e-h-navigation");
+  const navListRef = document.querySelector(".e-j-navigation-list");
+  const headerRef = document.querySelector(".e-j-header");
+  const navigationRef = document.querySelector(".e-j-navigation");
 
   menuBtnRef.addEventListener("click", () => {
     menuBtnRef.classList.toggle("is-open");
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navigationRef.classList.toggle("is-open");
   });
 
-  document.querySelectorAll(".e-h-navigation-link").forEach((n) =>
+  document.querySelectorAll(".e-j-navigation-link").forEach((n) =>
     n.addEventListener("click", () => {
       navListRef.classList.remove("is-open");
       menuBtnRef.classList.remove("is-open");
@@ -21,6 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 });
 
+function toggleAnswer(element) {
+  const answer = element.nextElementSibling;
+  const buttonImg = element.querySelector(".e-j-toggle-button img");
+
+  answer.classList.toggle("open");
+
+  if (answer.classList.contains("open")) {
+    buttonImg.src = "/img/weui_arrow-outlined (1).png";
+    buttonImg.classList.add("rotated");
+  } else {
+    buttonImg.src = "/img/weui_arrow-outlined (1).png";
+    buttonImg.classList.remove("rotated");
+  }
+}
 document.addEventListener("DOMContentLoaded", function () {
   const popup = document.getElementById("cookie-popup");
   const acceptButton = document.getElementById("accept-cookies");
